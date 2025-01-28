@@ -1,0 +1,407 @@
+.container {
+    width: 1440px;
+    height: 942px;
+    gap: 0;
+    position: relative;
+    margin: 0 auto;
+    user-select: none;
+}
+
+.image {
+    position: absolute;
+    left: 0;
+    width: 796px;
+    height: 900px;
+    margin-left: 30px;
+    background-image: url('/login/imageFondo.png');
+    background-size: 796px 900px;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.image::before {
+    content: "";
+    position: absolute;
+    width: 796px;
+    height: 900px;
+    background-image: linear-gradient(180deg, #33A3AA 0%, #107076 100%);
+    opacity: 0.85;
+}
+
+.login {
+    width: 675px;
+    margin-left: 765px;
+    height: 900px;
+    border: 1px solid #DCDBDD;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    z-index: 2;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    gap: 0;
+}
+
+.initSession {
+    position: absolute;
+    top: 319px;
+    left: 128px;
+    width: 361px;
+    height: 58px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 58px;
+    text-align: left;
+    color: #FFFFFF;
+    opacity: 1;
+    z-index: 3;
+}
+
+.paragraph {
+    position: absolute;
+    width: 360px;
+    height: 72px;
+    top: 387px;
+    left: 128px;
+    gap: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #FFFFFF;
+    opacity: 1;
+    z-index: 3;
+}
+
+.wrapper {
+    position: absolute;
+    top: 479px;
+    left: 128px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 3;
+}
+
+.monitoring,
+.notification {
+    margin-top: 3px;
+    width: 380px;
+    height: 41px;
+    opacity: 1;
+}
+
+.monitoring img,
+.notification img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.portal {
+    width: 368px;
+    height: 55px;
+    top: 260px;
+    left: 907px;
+    gap: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 36.48px;
+    font-weight: 600;
+    line-height: 54.71px;
+    text-align: left;
+    white-space: nowrap;
+    color: #202020;
+}
+
+.logContainer {
+    margin-left: 4px;
+}
+
+.isesion {
+    width: 165px;
+    height: 48px;
+    top: 315px;
+    left: 907px;
+    gap: 0;
+}
+
+.isesiontext {
+    font-family: Poppins;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 48px;
+    text-align: left;
+    white-space: nowrap;
+    color: #202020;
+}
+
+.inputEmail,
+.inputPassword {
+    margin-right: 18px;
+    position: relative;
+    margin-bottom: 24px;
+    color: #202020;
+}
+
+.inputEmail input,
+.inputPassword input {
+    width: 363px;
+    height: 48px;
+    border: 1px solid #DCDBDD;
+    border-radius: 12px;
+    padding: 0 16px;
+    font-family: 'Poppins';
+    font-size: 14px;
+}
+
+.inputEmail input::placeholder {
+    color: #84818A;
+    font-size: 12px;
+    line-height: 17px;
+}
+
+.inputPassword input::placeholder {
+    color: #84818A;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 19px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 12px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.eye-icon path {
+    fill: rgba(132, 129, 138, 1);
+}
+
+.form-control {
+    width: 393px;
+    height: 48px;
+    border: 1px solid #DCDBDD;
+    padding: 0 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    outline: none;
+    border-radius: 12px;
+}
+
+.form-label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #84818A;
+    transition: 0.3s;
+    pointer-events: none;
+    padding: 0 4px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: left;
+}
+
+.form-control:focus ~ .form-label,
+.form-control:not(:placeholder-shown) ~ .form-label,
+.form-control.is-invalid ~ .form-label {
+    top: 0;
+    z-index: 1;
+}
+
+.form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+.form-control.is-invalid ~ .form-label {
+    color: #dc3545;
+}
+
+.form-control::placeholder {
+    opacity: 0;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.forgotPassword {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+    white-space: nowrap;
+    margin-top: 15px;
+}
+
+.requiredPassword {
+    display: flex;
+    flex-direction: column;
+    width: 178px;
+    height: 48px;
+    color: #84818A;
+    font-size: 14px;
+    margin-top: 0;
+    opacity: 1;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.containerButton {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    z-index: 3;
+    justify-content: space-between;
+}
+
+.containerButton2 {
+    display: flex;
+    flex-direction: row;
+    z-index: 3;
+    justify-content: space-between;
+}
+
+.loginButton {
+    width: 164px;
+    height: 48px;
+    top: 539px;
+    margin-right: 9px;
+    left: 1136px;
+    gap: 0;
+    border-radius: 12px;
+    opacity: 1;
+    background: #33A3AA;
+    color: #FFFFFF;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: center;
+}
+
+.highlight {
+    color: #33A3AA;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.reCaptcha {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: left;
+    width: 385px;
+    height: 34px;
+    top: 607px;
+    left: 908px;
+    gap: 0;
+    color: #abaaac;
+    margin-top: 15px;
+    margin-left: 3px;
+}
+
+.nonAcount {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: left;
+    width: 385px;
+    height: 34px;
+    top: 607px;
+    left: 908px;
+    gap: 0;
+    color: #47464A;
+    margin-top: 6px;
+    margin-left: 1px;
+}
+
+.logo-placeholder {
+    width: 108px;
+    height: 89px;
+    top: 96px;
+    left: 145px;
+    gap: 0;
+    background: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.eye-button {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.eye-button svg path {
+    fill: #84818A;
+}
+.form-control.is-invalid ~ .eye-icon {
+    right: 19px;
+  }
+.invalid-feedback {
+    display: none;
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    margin-left: 16px;
+    font-family: 'PP Neue Montreal', sans-serif;
+}
+
+.form-control.is-invalid ~ .invalid-feedback {
+    display: block;
+}
+
+.paragraph2 {
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #FFFFFF;
+    opacity: 1;
+    z-index: 3;
+    width: 360px;
+    height: 120px;
+    top: 387px;
+    left: 128px;
+    gap: 0;
+}
+
+.wrapper2 {
+    position: absolute;
+    top: 534px;
+    left: 128px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 3;
+}
+

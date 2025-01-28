@@ -1,0 +1,119 @@
+    .ring {
+        width: 26.28px;
+        height: 26.28px;
+        top: 0.91px;
+        left: 1.81px;
+        gap: 0px;
+        opacity: 1;
+        display: none;
+    }
+
+    .world {
+        width: 24px;
+        left: 28px;
+        gap: 0px;
+        opacity: 0px;
+
+    }
+
+    .camera {
+        width: 24px;
+        height: 15px;
+        top: 192px;
+        left: 28px;
+        gap: 0px;
+        opacity: 0px;
+
+    }
+
+    .sensor {
+        width: 22px;
+        height: 16.97px;
+        top: 249px;
+        left: 29px;
+        gap: 0px;
+        opacity: 0px;
+
+    }
+
+
+
+
+    .logOut {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+        z-index: 1003;
+    }
+
+
+
+
+    .logOut a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 8px;
+        z-index: 2;
+    }
+
+    .logOut svg {
+        width: 18px;
+        height: 19px;
+        pointer-events: none;
+    }
+
+
+    .navbar {
+        display: block;
+        width: 80px;
+        height: 900px;
+        background-color: #FFFFFF;
+        color: white;
+        position: fixed;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+
+    .container-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .logo-main {
+        margin-bottom: 50px;
+        width: 36px;
+        height: 32.61px;
+    }
+
+
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        list-style: none;
+        position: relative;
+        z-index: 1001;
+    }
+
+    .nav-list li {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        z-index: 1002;
+    }
+
+
+
+

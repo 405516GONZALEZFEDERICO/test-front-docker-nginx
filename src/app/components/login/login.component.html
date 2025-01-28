@@ -1,0 +1,247 @@
+<ng-container *ngIf="isLoginView; else registerTemplate">
+  <div class="container">
+    <div class="image">
+      <div class="initSession">Iniciar sesión</div>
+      <p class="paragraph">
+        Nos alegra tenerte de vuelta y estamos listos para atender tus necesidades.
+        Inicia sesión y continúa aprovechando al máximo nuestra plataforma.
+      </p>
+      <div class="wrapper">
+        <div class="monitoring">
+          <img src="/login/MonitoreoIntegral.png" alt="Monitor icon">
+        </div>
+        <div class="notification">
+          <img src="/login/NotificacionesEnTiempoReal.png" alt="Notification icon">
+        </div>
+      </div>
+    </div>
+
+    <div class="login">
+      <div class="loginWrapper">
+        <div class="logContainer">
+          <div class="portal">Portal de monitoreo</div>
+          <div class="isesion">
+            <div class="isesiontext">Iniciar sesión</div>
+          </div>
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+          <div class="containerInput">
+
+            <div class="inputEmail">
+              <input type="email" class="form-control" placeholder="Email" formControlName="emailLogin"
+                [ngClass]="{'is-invalid': loginForm.get('emailLogin')?.invalid && loginForm.get('emailLogin')?.touched}">
+              <label class="form-label">Email</label>
+              <div class="invalid-feedback">
+                @if (loginForm.get('emailLogin')?.errors?.['required']) {
+                <span>El email es requerido</span>
+                }
+                @if (loginForm.get('emailLogin')?.errors?.['email']) {
+                <span>Ingresa un email valido</span>
+                }
+              </div>
+            </div>
+
+            <div class="inputPassword">
+              <input [type]="showPasswordLogin ? 'text' : 'password'" class="form-control" placeholder="Contraseña"
+                formControlName="passwordLogin"
+                [ngClass]="{'is-invalid': loginForm.get('passwordLogin')?.invalid && loginForm.get('passwordLogin')?.touched}">
+              <label class="form-label">Contraseña</label>
+
+              <svg class="eye-icon" width="18" height="12" viewBox="0 0 18 12" fill="none"
+                xmlns="http://www.w3.org/2000/svg" (click)="togglePasswordVisibilityLogin()">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M9 2.28882e-05C4.90909 2.28882e-05 1.41545 2.48802 0 6.00002C1.41545 9.51202 4.90909 12 9 12C13.0909 12 16.5845 9.51202 18 6.00002C16.5845 2.48802 13.0909 2.28882e-05 9 2.28882e-05ZM8.99924 10C6.74106 10 4.90833 8.208 4.90833 6C4.90833 3.792 6.74106 2 8.99924 2C11.2574 2 13.0901 3.792 13.0901 6C13.0901 8.208 11.2574 10 8.99924 10ZM8.99949 3.59959C7.64131 3.59959 6.54494 4.67159 6.54494 5.99959C6.54494 7.32759 7.64131 8.39959 8.99949 8.39959C10.3577 8.39959 11.454 7.32759 11.454 5.99959C11.454 4.67159 10.3577 3.59959 8.99949 3.59959Z"
+                  fill="#84818A" />
+              </svg>
+
+
+              <div class="invalid-feedback">
+                @if (loginForm.get('passwordLogin')?.errors?.['required']) {
+                <span>La contraseña es requerida</span>
+                }
+                @if (loginForm.get('passwordLogin')?.errors?.['pattern']) {
+                <span>La contraseña es no es valida</span>
+                }
+
+              </div>
+            </div>
+
+            <div class="containerButton">
+              <div class="forgotPassword">
+                ¿Olvidaste tu contraseña?
+              </div>
+              <button type="submit" class="loginButton" [disabled]="loading">
+                <div class="button-content">
+                  <div class="button-content">
+                    @if(!loading){
+                      <span >Iniciar sesión</span>
+                    }
+                    @if (loading) {
+                      <span>Cargando...</span>
+                    }
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="reCaptcha">
+          Protegido por reCAPTCHA y sujeto a la
+          <span class="highlight">Política de Privacidad</span> y
+          <span class="highlight">Condiciones</span>.
+        </div>
+        <div class="nonAcount">
+          ¿No tienes una cuenta?
+          <span class="highlight" (click)="toggleView()">Regístrate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+
+
+
+ <ng-template #registerTemplate>
+  <div class="container">
+    <div class="image">
+      <div class="initSession">Registrarse</div>
+      <p class="paragraph2">
+        ¡Bienvenido! Estamos encantados de que quieras unirte a nuestra plataforma. Regístrate y comienza a disfrutar de
+        todas las ventajas que ofrecemos. No pierdas la oportunidad de ser parte de nuestra comunidad.
+      </p>
+      <div class="wrapper2">
+        <div class="monitoring">
+          <img src="/login/MonitoreoIntegral.png" alt="Monitor icon">
+        </div>
+        <div class="notification">
+          <img src="/login/NotificacionesEnTiempoReal.png" alt="Notification icon">
+        </div>
+      </div>
+    </div>
+
+    <div class="login">
+      <div class="loginWrapper">
+        <div class="logContainer">
+          <div class="portal">Portal de monitoreo</div>
+          <div class="isesion">
+            <div class="isesiontext">Registrarse</div>
+          </div>
+        </div>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegister()">
+          <div class="containerInput">
+
+            <div class="inputEmail">
+              <input type="text" class="form-control" placeholder="Usuario" formControlName="user"
+                [ngClass]="{'is-invalid': registerForm.get('user')?.invalid && registerForm.get('user')?.touched}">
+              <label class="form-label">Usuario</label>
+              <div class="invalid-feedback">
+                @if (registerForm.get('user')?.errors?.['required']) {
+                <span>El user es requerido</span>
+                }
+                @if (registerForm.get('user')?.errors?.['minlength']) {
+                <span>Ingresa al menos 3 caracteres</span>
+                }
+                @if (registerForm.get('user')?.errors?.['maxlength']) {
+                <span>Ingresa maximo 50 caracteres</span>
+                }
+              </div>
+            </div>
+
+
+            <div class="inputEmail">
+              <input type="email" class="form-control" placeholder="Email" formControlName="email"
+                [ngClass]="{'is-invalid': registerForm.get('email')?.invalid && registerForm.get('email')?.touched}">
+              <label class="form-label">Email</label>
+              <div class="invalid-feedback">
+                @if (registerForm.get('email')?.errors?.['required']) {
+                <span>El email es requerido</span>
+                }
+                @if (registerForm.get('email')?.errors?.['email']) {
+                <span>Ingresa un email valido</span>
+                }
+                @if (registerForm.get('email')?.errors?.['emailExist']) {
+                <span >Ya existe el email</span>
+              }
+              </div>
+            </div>
+
+            <div class="inputPassword">
+              <input [type]="showPasswordRegister ? 'text' : 'password'" class="form-control" placeholder="Contraseña"
+                formControlName="password"
+                [ngClass]="{'is-invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.touched}">
+              <label class="form-label">Contraseña</label>
+              <svg class="eye-icon" width="18" height="12" viewBox="0 0 18 12" fill="none"
+                xmlns="http://www.w3.org/2000/svg" (click)="togglePasswordVisibilityRegister()">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M9 2.28882e-05C4.90909 2.28882e-05 1.41545 2.48802 0 6.00002C1.41545 9.51202 4.90909 12 9 12C13.0909 12 16.5845 9.51202 18 6.00002C16.5845 2.48802 13.0909 2.28882e-05 9 2.28882e-05ZM8.99924 10C6.74106 10 4.90833 8.208 4.90833 6C4.90833 3.792 6.74106 2 8.99924 2C11.2574 2 13.0901 3.792 13.0901 6C13.0901 8.208 11.2574 10 8.99924 10ZM8.99949 3.59959C7.64131 3.59959 6.54494 4.67159 6.54494 5.99959C6.54494 7.32759 7.64131 8.39959 8.99949 8.39959C10.3577 8.39959 11.454 7.32759 11.454 5.99959C11.454 4.67159 10.3577 3.59959 8.99949 3.59959Z"
+                  fill="#84818A" />
+              </svg>
+              <div class="invalid-feedback">
+                @if (registerForm.get('password')?.errors?.['required']) {
+                <span>Ingresa una contraseña</span>
+                }
+                @if (registerForm.get('password')?.errors?.['pattern']) {
+                <span>La contraseña es no es valida</span>
+                }
+
+              </div>
+            </div>
+
+            <div class="inputPassword">
+              <input 
+                [type]="showRepeatPasswordRegister ? 'text' : 'password'" 
+                class="form-control"
+                placeholder="Repetir contraseña" 
+                formControlName="repeatPassword"
+                [ngClass]="{'is-invalid': registerForm.get('repeatPassword')?.touched && 
+                  (registerForm.get('repeatPassword')?.errors || registerForm.errors?.['passwordsMatch'])}">
+              <label class="form-label">Repetir contraseña</label>
+              <svg class="eye-icon" width="18" height="12" viewBox="0 0 18 12" fill="none"
+              xmlns="http://www.w3.org/2000/svg" (click)="togglePasswordRepeatVisibilityRegister()">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M9 2.28882e-05C4.90909 2.28882e-05 1.41545 2.48802 0 6.00002C1.41545 9.51202 4.90909 12 9 12C13.0909 12 16.5845 9.51202 18 6.00002C16.5845 2.48802 13.0909 2.28882e-05 9 2.28882e-05ZM8.99924 10C6.74106 10 4.90833 8.208 4.90833 6C4.90833 3.792 6.74106 2 8.99924 2C11.2574 2 13.0901 3.792 13.0901 6C13.0901 8.208 11.2574 10 8.99924 10ZM8.99949 3.59959C7.64131 3.59959 6.54494 4.67159 6.54494 5.99959C6.54494 7.32759 7.64131 8.39959 8.99949 8.39959C10.3577 8.39959 11.454 7.32759 11.454 5.99959C11.454 4.67159 10.3577 3.59959 8.99949 3.59959Z"
+                fill="#84818A" />
+              </svg>
+              <div class="invalid-feedback">
+                @if (registerForm.get('repeatPassword')?.errors?.['required']) {
+                  <span>Ingresa una contraseña</span>
+                }
+                @if (registerForm.errors?.['passwordsMatch']) {
+                  <span>Las contraseñas no coinciden</span>
+                }
+              </div>
+            </div>
+
+            <div class="containerButton2">
+              <ul class="requiredPassword">
+                <li>- Al menos 8 caracteres</li>
+                <li>- Al menos 1 número</li>
+                <li>- Al menos 1 carácter especial</li>
+              </ul>
+              <button type="submit" class="loginButton">
+                <div class="button-content">
+                  @if(!loading){
+                    <span >Registrarse</span>
+                  }
+                  @if (loading) {
+                    <span>Cargando...</span>
+                  }
+                  
+                </div>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="nonAcount">
+          ¿Ya tienes una cuenta?
+          <span class="highlight" (click)="toggleView()">Iniciar sesión</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template> 
