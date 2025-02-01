@@ -17,7 +17,7 @@ COPY . .
 
 # Build the app
 RUN ng build --configuration production
-
+#
 # Runtime stage
 FROM nginx:alpine
 
